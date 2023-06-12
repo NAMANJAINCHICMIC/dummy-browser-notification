@@ -4,6 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { initializeApp } from "firebase/app";
+import { environment } from 'src/environments/enviroment';
+import { PushNotificationService } from './push-notification.service';
+initializeApp(environment.firebase);
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +17,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PushNotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
